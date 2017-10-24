@@ -1,0 +1,2 @@
+#CXX = /usr/bin/ccache clang++ -Qunused-arguments -fcolor-diagnostics 
+CXXFLAGS = -DBOOST_PHOENIX_NO_VARIADIC_EXPRESSION
