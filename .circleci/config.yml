@@ -1,10 +1,8 @@
-general:
-
-machine:
-  services:
-    - docker
-
-test:
-  override:
-    - docker build -t pgensler/sandboxr sandboxr
-    - docker run -d -p 8787:8787 pgensler/sandboxr
+version: 2
+jobs:
+  build:
+    docker:
+      - image: pgensler/sandboxr
+    steps:
+      - checkout
+      - run: docker run -d -p 8787:8787 -v pgensler/sandboxr
