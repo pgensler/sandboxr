@@ -5,4 +5,4 @@ jobs:
       - image: pgensler/sandboxr
     steps:
       - checkout
-      - run: docker run -d -p 8787:8787 -v pgensler/sandboxr
+      - run: docker run -ti pgensler/sandboxr
