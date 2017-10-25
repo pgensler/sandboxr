@@ -35,7 +35,7 @@ RUN apt-get update -qq \
         ###My packag are below this line
         tidytext janitor corrr officer devtools pacman \
         tidyquant timetk tibbletime sweep broom prophet \
-        forecast prophet lime sparklyr rsparkling \
+        forecast prophet lime sparklyr h2o rsparkling unbalanced \
         formattable httr rvest xml2 jsonlite \
         textclean naniar writexl \
     && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr"))' \
