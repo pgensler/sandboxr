@@ -4,8 +4,6 @@ sudo: required
 services:
   - docker
 
-before_install:
+install:
   - docker build -t pgensler/sandboxr .
-  
-script:
-  docker run -ti pgensler/sandboxr
+  - docker run -d -p 8787:8787 pgensler/sandboxr
