@@ -6,6 +6,7 @@ services:
 
 before_install:
   - docker build -t pgensler/sandboxr .
+script:
   - docker run -d -p 127.0.0.1:80:8787 pgensler/sandboxr /bin/sh
   - docker ps -a
   #- Rscript -e 'if("tidyverse" %in% rownames(installed.packages()) == TRUE) {"Tidyverse is installed in the container"} else {"Tidyverse is not installed in the container"}'
