@@ -1,6 +1,5 @@
 sudo: false
 language: r
-cache: packages
 services:
   - docker
 
