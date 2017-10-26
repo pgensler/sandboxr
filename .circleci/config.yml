@@ -1,12 +1,9 @@
 version: 2
-
-machine:
-  services:
-    - docker
 jobs:
   build:
     docker:
+      - image: rocker/r-base 
       - image: pgensler/sandboxr
     steps:
       - checkout
-      - run: docker
+      - run: docker-machine ip
