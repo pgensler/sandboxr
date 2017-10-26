@@ -1,7 +1,11 @@
-sudo: false
-language: r
+sudo: required
+
+
 services:
   - docker
 
-script:
+before_install:
   - docker build -t pgensler/sandboxr .
+  
+script:
+  docker run -ti pgensler/sandboxr
