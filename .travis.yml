@@ -4,5 +4,5 @@ cache: packages
 services:
   - docker
 
-before_install:
+script:
   - docker build -t pgensler/sandboxr .
