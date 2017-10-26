@@ -4,8 +4,9 @@ sudo: required
 services:
   - docker
 
-install:
+before_install:
   - docker build -t pgensler/sandboxr .
-  - docker run -d --name sandboxr pgensler/sandboxr
+  - docker run -d -p 127.0.0.1:80:8787 pgensler/sandboxr /bin/sh
+  - docker ps -a
   #- Rscript -e 'if("tidyverse" %in% rownames(installed.packages()) == TRUE) {"Tidyverse is installed in the container"} else {"Tidyverse is not installed in the container"}'
   #- docker run -d -p 8787:8787 pgensler/sandboxr
