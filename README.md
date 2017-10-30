@@ -20,7 +20,8 @@ You can login to the container using the following credentials:
 username: rstudio
 password: rstudio
 
-By default, docker is set to use 2gb of memory. If you wish to dedicate more resources to the machine, 
+By default, docker is set to use 2gb of memory. If you wish to dedicate more resources to the machine,
+Docker-> Preferences -> Advanced
 
 Notes
 RStudio uses port 8787 to connect on so you can only use that port with this container
