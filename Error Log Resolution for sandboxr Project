@@ -1,0 +1,79 @@
+10/27/2017
+Problem: Cannot build images from Docker Hub on GitLabs
+Errors on Building image from docker Hub
+
+$CI_BUILD_TOKEN is an enviroment variable, which is defined right here:
+https://blog.anynines.com/mastering-continuous-integration-and-continuous-deployment-with-gitlab/
+
+Thought:
+
+Should I be using job specific variables like Jeff or like above in my YAML?
+Enviroment variables are defined at Gitlab->Project->Settings-CI/CD
+ I thought the $CI_BUILD_TOKEN is defined at runtime?
+http://mikevanriel.com/2016/08/31/automatically-building-a-docker-container-using-gitlab-ci/
+"The text $CI_BUILD_TOKEN should not be replaced; this represents an internal environment variable containing the 
+token used to sign into your own private registry."
+
+I think travis needs a Rscript at the end with something to verify it worked
+
+Building Docker image notes
+
+    - docker build -t hub.docker.com/petergensler/sandboxr .
+    - docker push hub.docker.com/petergensler/sandboxr:latest
+
+gives me:
+error parsing HTTP 404 response body: invalid character '<' looking for beginning of value: "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body bgcolor=\"white\">\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+ERROR: Job failed: exit code 1
+
+---------
+
+Building with Gitlab  with no push to gitlab
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+    - docker build -t registry.gitlab.com/petergensler/sandboxr .
+#    - docker push hub.docker.com/petergensler/sandboxr:latest
+  only:
+    - master
+
+yields:
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+Login Succeeded
+
+Resolution:
+It seems like Gitlabs wants to:
+a. build your container with your dockerfile hosted on Gitlabs
+b. use the - docker:dind to build (Docker in Docker) and push to Gitlabs for CI and hosting
+
+---------
+
+Problem: Cannot login into Gitlab with the following command:
+docker login registry.gitlab.com -u petergensler -p Qadi53y1HeCCpezmWRsq
+
+Error on setting up Docker ~/config.json file:
+Links:
+https://www.bountysource.com/issues/37490090-docker-credential-wincred-executable-file-not-found-in-path
+
+Currently, it was like this:
+{
+"auths" : {
+"https://index.docker.io/v1/"; : {
+
+}
+},
+"credsStore" : "osxkeychain"
+}
+
+Removing
+ },
+"credsStore" : "osxkeychain"
+and ; made it work , JSON was validated:
+
+{
+"auths" : {
+"https://index.docker.io/v1/": {
+
+}
+}
+}
+
+
