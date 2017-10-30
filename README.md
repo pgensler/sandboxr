@@ -51,6 +51,12 @@ A job fails if the return code of the script phase is non zero
 https://docs.travis-ci.com/user/for-beginners/
 http://bencane.com/2016/01/11/using-travis-ci-to-test-docker-builds/
 
+### GitLabs
+Using GitLabs locally on the command line:
+http://docs.gitlab.com/ce/user/project/container_registry.html#using-with-private-projects
+Build docker container on GitLabs, and publish to GitLabs for CI
+https://github.com/docker/hub-feedback/issues/334
+
 ### Testing container locally:
 https://www.sitepoint.com/how-to-build-an-image-with-the-dockerfile/
 
