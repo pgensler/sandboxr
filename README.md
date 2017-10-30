@@ -31,3 +31,8 @@ https://github.com/mhermans/dockerding/blob/master/rversioned/Dockerfile
 http://www.hcbravo.org/IntroDataSci/homeworks/rocker/
 https://hub.docker.com/r/andrewheiss/docker-example-r-environment/~/dockerfile/
 https://github.com/verajosemanuel/tidyviz/blob/master/Dockerfile
+
+Travis Reference:
+In order for the build to succeed, the .travis.yml file needs to have a script phase to test the container if it works.
+A job fails if the return code of the script phase is non zero
+https://docs.travis-ci.com/user/for-beginners/
