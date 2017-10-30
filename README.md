@@ -12,11 +12,9 @@ Once you have pulled the image from docker hub, you can run the container using 
 ```docker run -d -p 8787:8787 -v ~/Desktop:/home/rstudio pgensler/sandboxr```
 This will map your ~/Desktop folder to the /home/rstudio folder so you can access files on your Desktop from inside the container
 
-Next, open up a web browser, and connect to the container via
-<docker-machine ip>:8787
-Your docker machine ip is the IP address that docker gives you when starting up Docker Quickstart Terminal.
-If you do not know what this is, simply type in the terminal ```docker-machine ip```, and you should be all set.
-You can login to the container using the following credentials:
+With Docker for Mac, you can now connect to the container via localhost:8787. See this for more details on Docker for Mac:
+#for reference: http://blog.bennycornelissen.nl.s3-website-eu-west-1.amazonaws.com/post/docker-for-mac-neat-fast-and-flawed/
+
 username: rstudio
 password: rstudio
 
