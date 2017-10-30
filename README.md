@@ -34,7 +34,8 @@ RStudio uses port 8787 to connect on so you can only use that port with this con
 ----------
 this also works...need to run on localhost:8787
 ```docker run -d -p 8787:8787 -v ~/Desktop:/home/rstudio pgensler/sandboxr```
-
+On ports, we are binding port 8787 on the host(before :) to 8787 on the container.
+Same goes for making my local machine's file paths available to the container as above.
 
 ### Sample Dockerfiles 
 If you are interested in what others sample dockerfiles look like, these are some that I continually go back and reference:
