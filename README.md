@@ -34,8 +34,10 @@ https://github.com/verajosemanuel/tidyviz/blob/master/Dockerfile
 
 ### Travis Reference:
 In order for the build to succeed, the .travis.yml file needs to have a script phase to test the container if it works.
+Also, sample travis file, which was incredibly helpfull
 A job fails if the return code of the script phase is non zero
 https://docs.travis-ci.com/user/for-beginners/
+http://bencane.com/2016/01/11/using-travis-ci-to-test-docker-builds/
 
 ### Testing container locally:
 https://www.sitepoint.com/how-to-build-an-image-with-the-dockerfile/
