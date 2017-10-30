@@ -24,6 +24,18 @@ Docker-> Preferences -> Advanced
 Notes
 RStudio uses port 8787 to connect on so you can only use that port with this container
 
+---------
+#steps to run
+1. Run Docker 4 mac
+2. Run the following
+docker run --rm -p 8787:8787 pgensler/sandboxr:latest
+3. Connect to localhost:8787
+4. Works!!
+----------
+this also works...need to run on localhost:8787
+docker run -d -p 8787:8787 -v ~/Desktop:/home/rstudio pgensler/sandboxr
+
+
 ### Sample Dockerfiles 
 If you are interested in what others sample dockerfiles look like, these are some that I continually go back and reference:
 
