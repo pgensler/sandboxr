@@ -25,7 +25,8 @@ Notes
 RStudio uses port 8787 to connect on so you can only use that port with this container
 
 Sample Dockerfiles 
-If you are interested in what others sample dockerfiles look like, these are some that I continually go back and reference
+If you are interested in what others sample dockerfiles look like, these are some that I continually go back and reference:
+
 https://github.com/mhermans/dockerding/blob/master/rversioned/Dockerfile
 http://www.hcbravo.org/IntroDataSci/homeworks/rocker/
 https://hub.docker.com/r/andrewheiss/docker-example-r-environment/~/dockerfile/
