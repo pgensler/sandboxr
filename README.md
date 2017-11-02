@@ -22,8 +22,8 @@ By default, docker is set to use 2gb of memory. If you wish to dedicate more res
 Docker-> Preferences -> Advanced
 
 Notes
-RStudio uses port 8787 to connect on so you can only use that port with this container
-rJava requires R CMD rJava- https://stackoverflow.com/questions/34212378/installation-of-rjava
+RStudio uses port 8787 to connect on so you can only use that port with this container  
+rJava requires R CMD rJava- https://stackoverflow.com/questions/34212378/installation-of-rjava  
 More info on sudo apt-get parameters-https://linux.die.net/man/8/apt-get
 
 ---------
@@ -42,26 +42,26 @@ Same goes for making my local machine's file paths available to the container as
 ### Sample Dockerfiles 
 If you are interested in what others sample dockerfiles look like, these are some that I continually go back and reference:
 
-https://github.com/mhermans/dockerding/blob/master/rversioned/Dockerfile
-http://www.hcbravo.org/IntroDataSci/homeworks/rocker/
-https://hub.docker.com/r/andrewheiss/docker-example-r-environment/~/dockerfile/
-https://github.com/verajosemanuel/tidyviz/blob/master/Dockerfile
+- https://github.com/mhermans/dockerding/blob/master/rversioned/Dockerfile
+- http://www.hcbravo.org/IntroDataSci/homeworks/rocker/
+- https://hub.docker.com/r/andrewheiss/docker-example-r-environment/~/dockerfile/ 
+- https://github.com/verajosemanuel/tidyviz/blob/master/Dockerfile
 
 ### Travis Reference:
 In order for the build to succeed, the .travis.yml file needs to have a script phase to test the container if it works.
-Also, sample travis file, which was incredibly helpfull
-A job fails if the return code of the script phase is non zero
+Also below, a sample travis file, which was incredibly helpfull  
+A job fails if the return code of the script phase is non zero  
 https://docs.travis-ci.com/user/for-beginners/
 http://bencane.com/2016/01/11/using-travis-ci-to-test-docker-builds/
 
 ### GitLabs
-Using GitLabs locally on the command line:
+Using GitLabs locally on the command line:  
 http://docs.gitlab.com/ce/user/project/container_registry.html#using-with-private-projects
 
-Build docker container on GitLabs, and publish to GitLabs for CI
+Build docker container on GitLabs, and publish to GitLabs for CI  
 https://github.com/docker/hub-feedback/issues/334
 
-### Testing container locally:
+### Testing container locally:  
 https://www.sitepoint.com/how-to-build-an-image-with-the-dockerfile/
 
 
