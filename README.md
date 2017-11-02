@@ -23,6 +23,8 @@ Docker-> Preferences -> Advanced
 
 Notes
 RStudio uses port 8787 to connect on so you can only use that port with this container
+rJava requires R CMD rJava- https://stackoverflow.com/questions/34212378/installation-of-rjava
+More info on sudo apt-get parameters-https://linux.die.net/man/8/apt-get
 
 ---------
 #steps to run
