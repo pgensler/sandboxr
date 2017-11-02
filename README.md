@@ -1,4 +1,4 @@
-# sandboxr [![Build Status](https://travis-ci.org/pgensler/sandboxr.svg?branch=master)](https://travis-ci.org/pgensler/sandboxr) ![Docker Automated](https://img.shields.io/docker/automated/pgensler/sandboxr.svg)
+# sandboxr [![Build Status](https://travis-ci.org/pgensler/sandboxr.svg?branch=master)](https://travis-ci.org/pgensler/sandboxr) [![Docker Build Status](https://img.shields.io/docker/build/pgensler/sandboxr.svg)]()
 
 Sandbox for testing out R packages in a reproducible way
 Please download Docker and Docker Quickstart Terminal located here prior to using this image:
