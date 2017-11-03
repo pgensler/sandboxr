@@ -6,6 +6,7 @@ jobs:
       - image: pgensler/sandboxr
     steps:
       - checkout
+      - setup_remote_docker
       - run: docker-machine ip
       - add_ssh_keys:
           fingerprints: "ee:5a:7f:ff:61:41:f2:39:04:e6:d3:cd:2b:98:8d:19"
