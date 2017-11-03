@@ -45,7 +45,8 @@ If you are interested in what others sample dockerfiles look like, these are som
 - https://github.com/mhermans/dockerding/blob/master/rversioned/Dockerfile
 - http://www.hcbravo.org/IntroDataSci/homeworks/rocker/
 - https://hub.docker.com/r/andrewheiss/docker-example-r-environment/~/dockerfile/ 
-- https://github.com/verajosemanuel/tidyviz/blob/master/Dockerfile
+- https://github.com/verajosemanuel/tidyviz/blob/master/Dockerfile  
+- https://github.com/MethodsConsultants/tidyverse-h2o
 
 ### Travis Reference:
 In order for the build to succeed, the .travis.yml file needs to have a script phase to test the container if it works.
