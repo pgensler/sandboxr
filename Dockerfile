@@ -32,7 +32,7 @@ RUN apt-get update -qq \
     default-jdk \
     default-jre \
     && R CMD javareconf \
-    && Rscript -e 'install_cran(c("ggstance","ggrepel","ggthemes",
+    && Rscript -e 'devtools::install_cran(c("ggstance","ggrepel","ggthemes",
                           ###My packages are below this line
                           "tidytext","janitor","corrr","officer","devtools","pacman",
                           "tidyquant","timetk","tibbletime","sweep","broom","prophet",
