@@ -32,13 +32,13 @@ RUN apt-get update -qq \
     default-jdk \
     default-jre \
     && R CMD javareconf \
-    && Rscript -e 'devtools::install_cran(c("ggstance","ggrepel","ggthemes",
-                          ###My packages are below this line
-                          "tidytext","janitor","corrr","officer","devtools","pacman",
-                          "tidyquant","timetk","tibbletime","sweep","broom","prophet",
-                          "forecast","prophet","lime","sparklyr","h2o","rsparkling","unbalanced",
-                          "formattable","httr","rvest","xml2","jsonlite",
-                          "textclean","naniar","writexl")) \
+    && Rscript -e 'devtools::install_cran(c("ggstance","ggrepel","ggthemes"))' \
+    && Rscript -e 'devtools::install_cran(c("tidytext","janitor","corrr","officer","devtools","pacman"))' \
+    && Rscript -e 'devtools::install_cran(c("tidyquant","timetk","tibbletime","sweep","broom","prophet"))' \
+    && Rscript -e 'devtools::install_cran(c("forecast","prophet","lime","sparklyr","h2o","rsparkling","unbalanced"))' \
+    && Rscript -e 'devtools::install_cran(c("formattable","httr","rvest","xml2","jsonlite"))' \
+    && Rscript -e 'devtools::install_cran(c("textclean","naniar","writexl"))' \
+    ##GitHub Packages
     && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr"))' \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
 	&& rm -rf /var/lib/apt/lists/*
