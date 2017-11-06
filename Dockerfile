@@ -23,6 +23,8 @@ COPY R/Makevars /root/.R/Makevars
 # Install ggplot extensions like ggstance and ggrepel
 # rm rf for removing all temp files after install
 # adding devtools for starting and ending of package installation
+# we need to use single quotes for packages:
+# https://stackoverflow.com/questions/47127594/multi-line-rscript-in-dockerfile/47128124?noredirect=1#comment81206386_47128124
 RUN apt-get update -qq \
     && apt-get -y --no-install-recommends install \
     liblzma-dev \
@@ -32,12 +34,12 @@ RUN apt-get update -qq \
     default-jdk \
     default-jre \
     && R CMD javareconf \
-    && Rscript -e 'devtools::install_cran(c("ggstance","ggrepel","ggthemes"))' \
-    && Rscript -e 'devtools::install_cran(c("tidytext","janitor","corrr","officer","devtools","pacman"))' \
-    && Rscript -e 'devtools::install_cran(c("tidyquant","timetk","tibbletime","sweep","broom","prophet"))' \
-    && Rscript -e 'devtools::install_cran(c("forecast","prophet","lime","sparklyr","h2o","rsparkling","unbalanced"))' \
-    && Rscript -e 'devtools::install_cran(c("formattable","httr","rvest","xml2","jsonlite"))' \
-    && Rscript -e 'devtools::install_cran(c("textclean","naniar","writexl"))' \
+    && Rscript -e "devtools::install_cran(c('ggstance','ggrepel','ggthemes', \
+           'tidytext','janitor','corrr','officer','devtools','pacman', \
+           'tidyquant','timetk','tibbletime','sweep','broom','prophet', \
+           'forecast','prophet','lime','sparklyr','h2o','rsparkling','unbalanced', \
+           'formattable','httr','rvest','xml2','jsonlite', \
+           'textclean','naniar','writexl'))" \
     ##GitHub Packages
     && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr"))' \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
