@@ -27,7 +27,7 @@ rJava requires R CMD rJava- https://stackoverflow.com/questions/34212378/install
 More info on sudo apt-get parameters-https://linux.die.net/man/8/apt-get
 
 ---------
-#steps to run
+### steps to run
 1. Run Docker 4 mac
 2. Run the following
 ```docker run --rm -p 8787:8787 pgensler/sandboxr:latest```
