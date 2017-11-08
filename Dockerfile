@@ -35,6 +35,8 @@ RUN apt-get update -qq \
     default-jre \
     libpoppler-cpp-dev \
     libapparmor-dev \
+    xsel \
+    xclip \
     && R CMD javareconf \
     && Rscript -e "devtools::install_cran(c('ggstance','ggrepel','ggthemes', \
            'tidytext','readtext','textclean','janitor','corrr','datapasta', \
