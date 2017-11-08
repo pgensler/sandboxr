@@ -37,7 +37,7 @@ RUN apt-get update -qq \
     curl \
     && R CMD javareconf \
     && Rscript -e "devtools::install_cran(c('ggstance','ggrepel','ggthemes', \
-           'tidytext','readtext','textclean','janitor','corrr', \
+           'tidytext','readtext','textclean','janitor','corrr','datapasta', \
            'tidyquant','timetk','tibbletime','sweep','broom','prophet', \
            'forecast','prophet','lime','sparklyr','h2o','rsparkling','unbalanced', \
            'formattable','httr','rvest','xml2','jsonlite', \
@@ -47,8 +47,12 @@ RUN apt-get update -qq \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
 	&& rm -rf /var/lib/apt/lists/*
 #Install Linuxbrew
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)" \
-test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH" \
-test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH" \
-test -r ~/.bash_profile && echo 'export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH"' >>~/.bash_profile \
-echo 'export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH"' >>~/.profile \
+#see this: https://github.com/sjackman/docker-linuxbrew/blob/master/linuxbrew-core/Dockerfile
+RUN useradd -m -s /bin/bash linuxbrew
+RUN echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
+
+USER linuxbrew
+WORKDIR /home/linuxbrew
+ENV PATH /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
+ENV SHELL /bin/bash
+RUN yes |ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
