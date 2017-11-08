@@ -34,6 +34,8 @@ RUN apt-get update -qq \
     default-jdk \
     default-jre \
     libpoppler-cpp-dev \
+    curl \
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)" \
     && R CMD javareconf \
     && Rscript -e "devtools::install_cran(c('ggstance','ggrepel','ggthemes', \
            'tidytext','readtext','textclean','janitor','corrr', \
