@@ -34,7 +34,7 @@ RUN apt-get update -qq \
     default-jdk \
     default-jre \
     libpoppler-cpp-dev \
-    curl \
+    libapparmor-dev \
     && R CMD javareconf \
     && Rscript -e "devtools::install_cran(c('ggstance','ggrepel','ggthemes', \
            'tidytext','readtext','textclean','janitor','corrr','datapasta', \
@@ -46,13 +46,3 @@ RUN apt-get update -qq \
     && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr"))' \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
 	&& rm -rf /var/lib/apt/lists/*
-#Install Linuxbrew
-#see this: https://github.com/sjackman/docker-linuxbrew/blob/master/linuxbrew-core/Dockerfile
-RUN useradd -m -s /bin/bash linuxbrew
-RUN echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
-
-USER linuxbrew
-WORKDIR /home/linuxbrew
-ENV PATH /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
-ENV SHELL /bin/bash
-RUN yes |ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
