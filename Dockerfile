@@ -36,7 +36,7 @@ RUN apt-get update -qq \
     libpoppler-cpp-dev \
     && R CMD javareconf \
     && Rscript -e "devtools::install_cran(c('ggstance','ggrepel','ggthemes', \
-           'tidytext','readtext',textclean,'janitor','corrr', \
+           'tidytext','readtext','textclean','janitor','corrr', \
            'tidyquant','timetk','tibbletime','sweep','broom','prophet', \
            'forecast','prophet','lime','sparklyr','h2o','rsparkling','unbalanced', \
            'formattable','httr','rvest','xml2','jsonlite', \
