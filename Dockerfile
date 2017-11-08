@@ -33,13 +33,14 @@ RUN apt-get update -qq \
     ccache \
     default-jdk \
     default-jre \
+    libpoppler-cpp-dev \
     && R CMD javareconf \
     && Rscript -e "devtools::install_cran(c('ggstance','ggrepel','ggthemes', \
-           'tidytext','janitor','corrr','officer','devtools','pacman', \
+           'tidytext','readtext',textclean,'janitor','corrr', \
            'tidyquant','timetk','tibbletime','sweep','broom','prophet', \
            'forecast','prophet','lime','sparklyr','h2o','rsparkling','unbalanced', \
            'formattable','httr','rvest','xml2','jsonlite', \
-           'textclean','naniar','writexl'))" \
+           'corrr','officer','devtools','pacman','naniar','writexl'))" \
     ##GitHub Packages
     && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr"))' \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
