@@ -12,14 +12,6 @@ LABEL maintainer="Peter Gensler <peterjgensler@gmail.com>"
 # clang++ instead
 
 # Attempting Linuxbrew install
-RUN useradd -m -s /bin/bash linuxbrew
-RUN echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
-USER linuxbrew
-WORKDIR /home/linuxbrew
-ENV PATH /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
-ENV SHELL /bin/bash
-RUN yes |ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-RUN brew doctor || true
 
 # prophet needs rstan pkg, and we need to set Makevars compiler flag to compile properly
 # Make ~/.R
@@ -46,9 +38,16 @@ RUN apt-get update -qq \
     xsel \
     xclip \
     build-essential \
-    curl \
+    curl \ #linuxbrew packages below
     file \
+    g++ \
+    gawk \
     git \
+    m4 \
+    make \
+    patch \
+    ruby \
+    tcl \
     && R CMD javareconf \
     && Rscript -e "devtools::install_cran(c('ggstance','ggrepel','ggthemes', \
            'tidytext','readtext','textclean','janitor','corrr','datapasta', \
