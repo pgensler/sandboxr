@@ -24,14 +24,6 @@ COPY R/Makevars /root/.R/Makevars
 # we need to use single quotes for packages:
 # https://stackoverflow.com/questions/47127594/multi-line-rscript-in-dockerfile/47128124?noredirect=1#comment81206386_47128124
 
-##Linuxbrew
-# Set up UTF-8
-RUN apt-get update && \
-    apt-get install -y apt-utils locales && \
-    sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
-    dpkg-reconfigure locales && \
-    update-locale LANG=en_US.UTF-8
-ENV LANG en_US.UTF-8
 
 #linuxbrew packages below curl
 RUN apt-get update -qq \
@@ -46,12 +38,6 @@ RUN apt-get update -qq \
     libapparmor-dev \
     xsel \
     xclip \
-    build-essential \
-    curl \
-    file \
-    git \
-    build-essential \
-    python-setuptools \
     && R CMD javareconf \
     && Rscript -e "devtools::install_cran(c('ggstance','ggrepel','ggthemes', \
            'tidytext','readtext','textclean','janitor','corrr','datapasta', \
@@ -63,17 +49,5 @@ RUN apt-get update -qq \
     && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr"))' \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
 	&& rm -rf /var/lib/apt/lists/*
-
-# Create a linuxbrew user
-RUN  useradd -m -s /bin/bash linuxbrew \
-     && echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
-USER linuxbrew
-WORKDIR /home/linuxbrew
-ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH \
-    SHELL=/bin/bash
-
-# Install Linuxbrew from github
-RUN git clone https://github.com/Linuxbrew/brew.git .linuxbrew
-
-# Install portable-ruby by running brew for the first time
-RUN brew doctor
+	
+FROM linuxbrew/debian:latest
