@@ -24,6 +24,7 @@ Docker-> Preferences -> Advanced
 Notes
 RStudio uses port 8787 to connect on so you can only use that port with this container  
 rJava requires R CMD rJava- https://stackoverflow.com/questions/34212378/installation-of-rjava  
+Also, the default way to install packages on Debian is via apt-get if necessary  
 More info on sudo apt-get parameters-https://linux.die.net/man/8/apt-get
 
 ---------
