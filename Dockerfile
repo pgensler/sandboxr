@@ -51,3 +51,4 @@ RUN apt-get update -qq \
 	&& rm -rf /var/lib/apt/lists/*
 	
 FROM linuxbrew/debian:latest
+RUN docker run -it linuxbrew/debian
