@@ -45,6 +45,10 @@ RUN apt-get update -qq \
     libapparmor-dev \
     xsel \
     xclip \
+    build-essential \
+    curl \
+    file \
+    git \
     && R CMD javareconf \
     && Rscript -e "devtools::install_cran(c('ggstance','ggrepel','ggthemes', \
            'tidytext','readtext','textclean','janitor','corrr','datapasta', \
