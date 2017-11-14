@@ -33,6 +33,7 @@ RUN apt-get update && \
     update-locale LANG=en_US.UTF-8
 ENV LANG en_US.UTF-8
 
+#linuxbrew packages below curl
 RUN apt-get update -qq \
     && apt-get -y --no-install-recommends install \
     liblzma-dev \
@@ -46,7 +47,7 @@ RUN apt-get update -qq \
     xsel \
     xclip \
     build-essential \
-    curl \ #linuxbrew packages below
+    curl \
     file \
     git \
     build-essential \
