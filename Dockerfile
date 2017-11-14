@@ -11,9 +11,17 @@ LABEL maintainer="Peter Gensler <peterjgensler@gmail.com>"
 # with gcc, so copy custom CXX settings to /root/.R/Makevars and use ccache and
 # clang++ instead
 
+# Attempting Linuxbrew install
+RUN useradd -m -s /bin/bash linuxbrew
+RUN echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
+USER linuxbrew
+WORKDIR /home/linuxbrew
+ENV PATH /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
+ENV SHELL /bin/bash
+RUN yes |ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+RUN brew doctor || true
+
 # prophet needs rstan pkg, and we need to set Makevars compiler flag to compile properly
-
-
 # Make ~/.R
 RUN mkdir -p $HOME/.R
 
