@@ -49,7 +49,7 @@ RUN apt-get update -qq \
     && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr"))' \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
 	&& rm -rf /var/lib/apt/lists/*
-FROM linuxbrew/linuxbrew as linuxbrew
+FROM linuxbrew/linuxbrew
 COPY --from=linuxbrew /home/linuxbrew /home/linuxbrew
 ENV PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 RUN brew config
