@@ -5,8 +5,8 @@ addons:
     packages:
       - docker-ce
       
-services:
-  - docker
+#services:
+#  - docker
 
       
 before_install:
