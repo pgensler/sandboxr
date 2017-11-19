@@ -1,10 +1,13 @@
 sudo: required
-services:
-  - docker
+
 addons:
   apt:
     packages:
       - docker-ce
+      
+services:
+  - docker
+
       
 before_install:
   - docker build -t pgensler/sandboxr .
