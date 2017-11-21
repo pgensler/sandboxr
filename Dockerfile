@@ -42,14 +42,14 @@ RUN apt-get update -qq \
     && Rscript -e "devtools::install_cran(c('ggstance','ggrepel','ggthemes', \
            'tidytext','readtext','textclean','janitor','corrr','datapasta', \
            'tidyquant','timetk','tibbletime','sweep','broom','prophet', \
-           'forecast','prophet','lime','sparklyr','h2o','rsparkling','unbalanced', \
+           'forecast','prophet','lime','sparklyr','h2o','rsparkling','unbalanced','yardstick', \
            'formattable','httr','rvest','xml2','jsonlite', \
            'corrr','officer','devtools','pacman','naniar','writexl'))" \
     ##GitHub Packages
     && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr"))' \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
 	&& rm -rf /var/lib/apt/lists/*
-FROM linuxbrew/linuxbrew
-COPY --from=linuxbrew /home/linuxbrew /home/linuxbrew
-ENV PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
-RUN brew config
+#FROM linuxbrew/linuxbrew
+#COPY --from=linuxbrew /home/linuxbrew /home/linuxbrew
+#ENV PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+#RUN brew config
