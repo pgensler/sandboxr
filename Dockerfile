@@ -28,6 +28,7 @@ COPY R/Makevars /root/.R/Makevars
 #linuxbrew packages below curl
 RUN apt-get update -qq \
     && apt-get -y --no-install-recommends install \
+    libarchive-dev \
     liblzma-dev \
     libbz2-dev \
     clang  \
@@ -46,7 +47,7 @@ RUN apt-get update -qq \
            'formattable','httr','rvest','xml2','jsonlite', \
            'corrr','officer','devtools','pacman','naniar','writexl'))" \
     ##GitHub Packages
-    && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr","sicarul/xray"))' \
+    && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr","sicarul/xray","r-lib/pkgman"))' \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
 	&& rm -rf /var/lib/apt/lists/*
 #FROM linuxbrew/linuxbrew
