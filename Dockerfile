@@ -15,6 +15,13 @@ LABEL maintainer="Peter Gensler <peterjgensler@gmail.com>"
 # Make ~/.R
 RUN mkdir -p $HOME/.R
 
+#Make Custom User profile for where we want all our pkgs installed
+#reference:http://people.stat.sfu.ca/~cschwarz/CourseNotes/R-personal-library-Mac.html
+# http://zvfak.blogspot.ca/2012/06/updating-r-but-keeping-your-installed.html
+# $HOME is enviroment variable which we can manipulate with ENV command
+RUN mkdir $HOME/Rlibs
+ENV R_LIBS $HOME/Rlibs
+
 # $HOME doesn't exist in the COPY shell, so be explicit
 COPY R/Makevars /root/.R/Makevars
 
