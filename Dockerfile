@@ -48,7 +48,7 @@ RUN apt-get update -qq \
     xclip \
     && R CMD javareconf \
     && Rscript -e "devtools::install_cran(c('ggstance','ggrepel','ggthemes', \
-           'tidytext','readtext','textclean','janitor','corrr','datapasta', \
+           'tidytext','readtext','textclean','janitor','dataMaid','datapasta', \
            'tidyquant','timetk','tibbletime','sweep','broom','prophet', \
            'forecast','prophet','lime','sparklyr','h2o','rsparkling','unbalanced','yardstick', \
            'formattable','httr','rvest','xml2','jsonlite', \
