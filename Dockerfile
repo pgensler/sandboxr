@@ -52,7 +52,7 @@ RUN apt-get update -qq \
            'tidyquant','timetk','tibbletime','sweep','broom','prophet', \
            'forecast','prophet','lime','sparklyr','h2o','rsparkling','unbalanced','yardstick', \
            'formattable','httr','rvest','xml2','jsonlite', \
-           'corrr','officer','devtools','pacman','naniar','writexl'))" \
+           'corrr','officer','devtools','pacman','naniar','writexl','tidyxl'))" \
     ##GitHub Packages
     && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr","sicarul/xray","r-lib/pkgman"))' \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
