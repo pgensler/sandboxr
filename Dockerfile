@@ -46,6 +46,7 @@ RUN apt-get update -qq \
     libapparmor-dev \
     xsel \
     xclip \
+    vlc \
     && R CMD javareconf \
     && Rscript -e "devtools::install_cran(c('ggstance','ggrepel','ggthemes', \
            'tidytext','readtext','textclean','janitor','dataMaid','datapasta', \
@@ -54,7 +55,7 @@ RUN apt-get update -qq \
            'formattable','httr','rvest','xml2','jsonlite', \
            'corrr','officer','devtools','pacman','naniar','writexl','tidyxl'))" \
     ##GitHub Packages
-    && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr","sicarul/xray","r-lib/pkgman"))' \
+    && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr","sicarul/xray","r-lib/pkgman","brooke-watson/BRRR"))' \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
 	&& rm -rf /var/lib/apt/lists/*
 #FROM linuxbrew/linuxbrew
