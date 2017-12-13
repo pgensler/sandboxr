@@ -52,7 +52,7 @@ RUN apt-get update -qq \
            'tidytext','readtext','textclean','janitor','dataMaid','datapasta', \
            'tidyquant','timetk','tibbletime','sweep','broom','prophet', \
            'forecast','prophet','lime','sparklyr','h2o','rsparkling','unbalanced','yardstick', \
-           'formattable','httr','rvest','xml2','jsonlite', \
+           'formattable','httr','rvest','xml2','jsonlite','assertr', 'testthat','assertthat', \
            'corrr','officer','devtools','pacman','naniar','writexl','tidyxl'))" \
     ##GitHub Packages
     && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr","sicarul/xray","r-lib/pkgman","brooke-watson/BRRR"))' \
