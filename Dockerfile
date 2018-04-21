@@ -55,7 +55,7 @@ RUN apt-get update -qq \
            'formattable','httr','rvest','xml2','jsonlite','assertr', 'testthat','assertthat', \
            'corrr','officer','devtools','pacman','naniar','writexl','tidyxl'))" \
     ##GitHub Packages
-    && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr","sicarul/xray","r-lib/pkgman","brooke-watson/BRRR"))' \
+    && Rscript -e 'devtools::install_github(c("hadley/multidplyr","jeremystan/tidyjson","ropenscilabs/skimr","sicarul/xray","r-lib/pkgman","brooke-watson/BRRR","egnha/rong"))' \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
 	&& rm -rf /var/lib/apt/lists/*
 #FROM linuxbrew/linuxbrew
